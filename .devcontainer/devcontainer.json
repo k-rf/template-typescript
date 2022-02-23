@@ -1,8 +1,8 @@
 {
-  "name": "react",
-  "remoteUser": "react",
-  "dockerComposeFile": "./docker-compose.yaml",
-  "service": "react",
+  "name": "template_typescript",
+  "remoteUser": "template_typescript",
+  "dockerComposeFile": "../docker-compose.dev.yaml",
+  "service": "application",
   "postCreateCommand": "yarn install",
   "workspaceFolder": "/workspaces",
   "overrideCommand": true,

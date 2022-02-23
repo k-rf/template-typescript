@@ -1,6 +1,6 @@
 {
   "name": "template-typescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The template of TypeScript.",
   "main": "index.ts",
   "author": "Kawano Kenichi <kenichi.k.820@gmail.com>",
@@ -10,7 +10,7 @@
     "prepare": "husky install",
     "lint": "eslint --fix --cache --ext .tsx,.ts,.js ./src",
     "format": "prettier . --write",
-    "check": "tsc --project tsconfig.json --pretty --noEmit"
+    "check-types": "tsc --project tsconfig.json --pretty --noEmit"
   },
   "lint-staged": {
     "*.{tsx,ts,js}": [
