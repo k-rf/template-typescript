@@ -1,6 +1,6 @@
 {
   "name": "template-typescript",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "The template of TypeScript.",
   "main": "index.ts",
   "author": "Kawano Kenichi <kenichi.k.820@gmail.com>",
