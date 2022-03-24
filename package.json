@@ -1,6 +1,6 @@
 {
   "name": "template-typescript",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "The template of TypeScript.",
   "main": "index.ts",
   "author": "Kawano Kenichi <kenichi.k.820@gmail.com>",
@@ -18,6 +18,7 @@
   },
   "lint-staged": {
     "*.{tsx,ts,js}": [
+      "bash -c 'yarn check:type'",
       "prettier --write",
       "eslint --cache --fix"
     ],
