@@ -1,4 +1,8 @@
 export const objectPropertySort = (obj: object): object => {
+  if (!obj) {
+    return obj;
+  }
+
   const sorted = Object.entries(obj).sort();
 
   return sorted.reduce((p, [key, value]) => {

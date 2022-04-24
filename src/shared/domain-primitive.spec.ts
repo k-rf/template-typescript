@@ -20,6 +20,8 @@ class CompositeTestValueObject extends DomainPrimitive<Props, "CompositeTestValu
 describe("DomainPrimitive", () => {
   describe("equals", () => {
     it.each([
+      [null, null, true],
+      [null, 0, false],
       [1, 1, true],
       [1, 2, false],
       ["abc", "abc", true],

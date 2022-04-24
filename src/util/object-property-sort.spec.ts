@@ -1,6 +1,7 @@
 import { objectPropertySort } from "./object-property-sort";
 
 type Props = {
+  no: null;
   str: string;
   num: number;
   arr: object[];
@@ -12,9 +13,11 @@ class TestObject {
 }
 
 const obj1 = new TestObject({
+  no: null,
   num: 42,
   str: "john",
   obj: new TestObject({
+    no: null,
     num: 43,
     str: "doe",
     arr: [],
@@ -30,6 +33,7 @@ const obj2 = new TestObject({
     arr: [],
     str: "doe",
     num: 43,
+    no: null,
   }),
   arr: [
     { b: 2, a: 1 },
@@ -37,6 +41,7 @@ const obj2 = new TestObject({
   ],
   str: "john",
   num: 42,
+  no: null,
 });
 
 describe("objectPropertySort", () => {
