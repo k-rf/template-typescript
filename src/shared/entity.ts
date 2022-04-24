@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-import { DomainPrimitive } from "./domain-primitive";
+import { DomainPrimitive, Primitive } from "./domain-primitive";
 import { Uuid } from "./uuid";
 
-type Key<T> = T extends Record<string, DomainPrimitive<any>> ? keyof T : never;
+type D = DomainPrimitive<Primitive>;
+type A = Array<D>;
+type O = Record<"id", Uuid<string>> & Record<string, A | D>;
 
-export abstract class Entity<
-  T extends Record<"id", Uuid<string>> & Record<string, DomainPrimitive<any>>,
-  U extends string
-> {
+type Key<T> = keyof T;
+
+export abstract class Entity<T extends O, U extends string> {
   private entityBrand!: U;
 
   constructor(private readonly value: T) {
@@ -17,14 +16,8 @@ export abstract class Entity<
 
   protected abstract validate(value: T): T;
 
-  valueOf(): T;
-  valueOf<K extends Key<T>>(key: K): T[K];
-  valueOf<K extends Key<T>>(key?: K) {
-    if (key) {
-      return this.value[key];
-    } else {
-      return this.value;
-    }
+  valueOf<K extends Key<T>>(key: K) {
+    return this.value[key];
   }
 
   equals(that: Entity<T, U>): boolean {

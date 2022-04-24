@@ -84,10 +84,6 @@ describe("DomainPrimitive", () => {
 
       const entity = new TestEntity({ id, num, str });
 
-      it("キーを指定せずに値を取得する", () => {
-        expect(entity.valueOf()).toStrictEqual({ id, num, str });
-      });
-
       it.each<[keyof Props, Props[keyof Props]]>([
         ["id", id],
         ["num", num],
