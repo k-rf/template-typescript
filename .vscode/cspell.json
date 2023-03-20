@@ -2,5 +2,5 @@
   "version": "0.2",
   "gitignoreRoot": [".."],
   "ignorePaths": ["/.devcontainer/", "/node_modules/"],
-  "words": ["esbuild", "linebreak", "Parens", "Prettierrc"]
+  "words": ["commandhistory", "devcontainer", "esbuild", "linebreak", "Parens", "Prettierrc"]
 }

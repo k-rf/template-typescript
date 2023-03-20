@@ -1,13 +1,5 @@
 version: "3.9"
 
-volumes:
-  bash_history:
-    name: ${BASH_HISTORY_VOLUME_NAME}
-  vscode_extensions:
-    name: ${VSCODE_EXTENSIONS_VOLUME_NAME}
-  node_modules:
-    name: ${NODE_MODULES_VOLUME_NAME}
-
 services:
   application:
     build:
@@ -33,3 +25,11 @@ services:
       - type: volume
         source: vscode_extensions
         target: ${HOME}/.vscode-server/extensions
+
+volumes:
+  bash_history:
+    name: ${BASH_HISTORY_VOLUME_NAME}
+  vscode_extensions:
+    name: ${VSCODE_EXTENSIONS_VOLUME_NAME}
+  node_modules:
+    name: ${NODE_MODULES_VOLUME_NAME}
