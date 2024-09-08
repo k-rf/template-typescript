@@ -46,12 +46,31 @@
         "yzhang.markdown-all-in-one"
       ],
       "settings": {
+        "editor.codeActionsOnSave": { "source.fixAll": "explicit" },
         "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file",
+        "eslint.rules.customizations": [{ "rule": "@cspell/spellchecker", "severity": "off" }],
+        "eslint.useFlatConfig": true,
         "eslint.workingDirectories": [{ "mode": "auto" }],
-        "eslint.experimental.useFlatConfig": true,
-        "eslint.rules.customizations": [
-          { "rule": "@cspell/spellchecker", "severity": "off" }
-        ]
+        "files.insertFinalNewline": true,
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true,
+        "[markdown]": {
+          "editor.unicodeHighlight.ambiguousCharacters": false,
+          "editor.unicodeHighlight.invisibleCharacters": false,
+          "diffEditor.ignoreTrimWhitespace": false,
+          "editor.wordWrap": "on",
+          "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+          },
+          "files.trimTrailingWhitespace": false,
+          "cSpell.fixSpellingWithRenameProvider": true,
+          "cSpell.advanced.feature.useReferenceProviderWithRename": true,
+          "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
+        }
       }
     }
   }

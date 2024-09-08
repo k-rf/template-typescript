@@ -8,7 +8,7 @@ ARG REMOTE_HOME
 # ------------------------------------------------------------------------------
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
   && apt-get install -y --no-install-recommends sudo less locales ca-certificates curl gnupg lsb-release
-RUN npm install -g zx
+RUN npm install -g zx @ae-studio/px
 
 # Docker のインストール
 RUN mkdir -p /etc/apt/keyrings && curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
