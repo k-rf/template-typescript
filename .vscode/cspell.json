@@ -6,12 +6,13 @@
     "commandhistory",
     "devcontainer",
     "esbuild",
+    "Filenaming",
     "linebreak",
     "paralleldrive",
     "Parens",
-    "Prettierrc",
     "sonarjs",
     "tada",
+    "textlint",
     "tseslint"
   ]
 }

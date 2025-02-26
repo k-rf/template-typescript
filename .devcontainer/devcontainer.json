@@ -4,19 +4,21 @@
   "dockerComposeFile": "./compose.dev.yaml",
   "service": "app",
   "postCreateCommand": "bun install",
-  "workspaceFolder": "/template-typescript",
+  "workspaceFolder": "/workspaces/template-typescript",
   "overrideCommand": true,
   "shutdownAction": "none",
   "customizations": {
     "vscode": {
       "extensions": [
         "albymor.increment-selection",
+        "biomejs.biome",
         "bodil.file-browser",
+        "ChakrounAnas.turbo-console-log",
         "christian-kohler.path-intellisense",
         "DavidAnson.vscode-markdownlint",
         "dbaeumer.vscode-eslint",
         "eamodio.gitlens",
-        "esbenp.prettier-vscode",
+        "formulahendry.auto-rename-tag",
         "foxundermoon.shell-format",
         "GitHub.copilot-chat",
         "GitHub.copilot",
@@ -28,7 +30,6 @@
         "ipatalas.vscode-postfix-ts",
         "irongeek.vscode-env",
         "kahole.magit",
-        "kavod-io.vscode-jest-test-adapter",
         "mhutchie.git-graph",
         "mikestead.dotenv",
         "ms-azuretools.vscode-docker",
@@ -47,25 +48,41 @@
       ],
       "settings": {
         "editor.codeActionsOnSave": { "source.fixAll": "explicit" },
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultColorDecorators": "always",
         "editor.formatOnSave": true,
         "editor.formatOnSaveMode": "file",
+
         "eslint.rules.customizations": [{ "rule": "@cspell/spellchecker", "severity": "off" }],
         "eslint.useFlatConfig": true,
         "eslint.workingDirectories": [{ "mode": "auto" }],
+
         "files.insertFinalNewline": true,
         "files.trimFinalNewlines": true,
         "files.trimTrailingWhitespace": true,
+
+        "[typescript][typescriptreact][javascript][json][jsonc][css]": {
+          "editor.defaultFormatter": "biomejs.biome",
+          "editor.codeActionsOnSave": {
+            "source.organizeImports.biome": "never",
+            "quickfix.biome": "explicit"
+          }
+        },
+
+        "[shellscript]": {
+          "files.eol": "\n",
+          "editor.defaultFormatter": "foxundermoon.shell-format"
+        },
+
         "[markdown]": {
           "editor.unicodeHighlight.ambiguousCharacters": false,
           "editor.unicodeHighlight.invisibleCharacters": false,
-          "diffEditor.ignoreTrimWhitespace": false,
           "editor.wordWrap": "on",
           "editor.quickSuggestions": {
             "comments": "off",
             "strings": "off",
             "other": "off"
           },
+          "diffEditor.ignoreTrimWhitespace": false,
           "files.trimTrailingWhitespace": false,
           "cSpell.fixSpellingWithRenameProvider": true,
           "cSpell.advanced.feature.useReferenceProviderWithRename": true,

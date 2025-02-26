@@ -1,72 +1,41 @@
 // @ts-check
 
-import { recommended as pluginCspellRecommended } from "@cspell/eslint-plugin/configs";
-import eslint from "@eslint/js";
-import configPrettier from "eslint-config-prettier";
+import pluginCspell from "@cspell/eslint-plugin/configs";
 import pluginImportX from "eslint-plugin-import-x";
 import pluginSonarjs from "eslint-plugin-sonarjs";
-import pluginUnusedImports from "eslint-plugin-unused-imports";
 import globals from "globals";
-import tseslint, { configs as tseslintConfigs } from "typescript-eslint";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["node_modules", ".pnpm-store", "dist", "build"] },
+  { ignores: ["node_modules", "dist", "build", "out"] },
+  { files: ["**/*.{ts,tsx}"] },
+  { plugins: { "@typescript-eslint": tseslint.plugin } },
   {
-    plugins: {
-      ["unused-imports"]: pluginUnusedImports,
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: { tsconfigRootDir: import.meta.dirname, project: "./tsconfig.eslint.json" },
+      globals: { ...globals.browser, ...globals.node },
     },
   },
-  eslint.configs.recommended,
-  ...tseslintConfigs.strictTypeChecked,
-  ...tseslintConfigs.stylisticTypeChecked,
-  configPrettier,
-  pluginCspellRecommended,
+  pluginCspell.recommended,
   pluginImportX.flatConfigs.recommended,
   pluginImportX.flatConfigs.typescript,
   pluginSonarjs.configs.recommended,
   {
-    languageOptions: {
-      globals: { ...globals.node },
-      parserOptions: {
-        tsconfigRootDir: import.meta.dirname,
-        project: "./tsconfig.eslint.json",
-      },
-    },
     rules: {
-      "@typescript-eslint/no-unused-vars": "off",
-      "no-unused-vars": "off",
-      "unused-imports/no-unused-imports": "error",
-      "unused-imports/no-unused-vars": [
-        "warn",
-        {
-          vars: "all",
-          varsIgnorePattern: "^_",
-          args: "after-used",
-          argsIgnorePattern: "^_",
-        },
-      ],
+      "object-shorthand": ["error", "never"],
+
+      "@typescript-eslint/consistent-type-imports": "error",
 
       "import-x/order": [
         "error",
         {
-          groups: [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index",
-            "object",
-            "type",
-          ],
+          groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
           "newlines-between": "always",
           alphabetize: { order: "asc", caseInsensitive: false },
         },
       ],
+      "import-x/no-named-as-default-member": "off",
     },
-  },
-  {
-    files: ["**/*.js"],
-    ...tseslintConfigs.disableTypeChecked,
   },
 );

@@ -8,12 +8,14 @@
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "types": ["@types/node", "vite/client", "vitest/globals"],
+    "types": ["@types/bun", "vite/client"],
     "resolveJsonModule": true,
     "isolatedModules": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
+    "baseUrl": ".",
+    "paths": { "~/*": ["./src/*"] },
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -23,8 +25,5 @@
     "noUncheckedIndexedAccess": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitOverride": true
-  },
-  "include": ["src"],
-  "exclude": ["node_modules"],
-  "extends": "./tsconfig.paths.json"
+  }
 }
